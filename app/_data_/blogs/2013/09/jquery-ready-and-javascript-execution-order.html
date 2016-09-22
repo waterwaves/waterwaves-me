@@ -1,0 +1,32 @@
+<p>It is really straightforward but fuzzy to me that when there are JavaScript inline code and JavaScript source files being involved into a single HTML file, what is the exact result it will behave? </p>
+<p>For this particular question, I just did a specific research for only the following case:</p>
+<p>The possible codes involed are jQuery ready function </p>
+
+<pre>
+<code>$(document).ready(function() {
+  // whatever code goes here.
+});
+
+// or a shorten one
+
+$(function() {
+  // whatever code goes here.
+});
+</code>
+</pre>
+
+<p>and inline JavaScript (which actually means not jQuery ready function).</p>
+<p><span class="big-stylish">Case 1:</span> If in the HTML file, there is only pure inline script, the js script will be executed from the top to the bottom. When it reaches the js files, it will go to the file and execute the script inside the file from the top to the bottom. (In other word, it will render the code from the file and put the code where the file is.)</p>
+<p><span class="big-stylish">Case 2:</span> If there is only pure jQuery ready function, both in the HTML file and JavaScript files, it will execute from the top to the bottom after the page DOMs are fully rendered. When it reaches the js files, it will go to the file and execute the script inside the file from the top to the bottom. </p>
+<p>We know that jQuery ready function will be triggered only after the page is fully received. So, basically, if Case 1 and Case 2 are mixed together, it is easier to understand their baby:</p>
+<p><span class="big-stylish">Case 3:</span> If there are both jQuery ready functions and inline script, the js inline script will be executed from the top to the bottom first, and then the jQuery ready function will be executed from the top to the bottom; when it meets js files, it will go into the files to executed them without doubts. </p>
+<p>Accordingly, there are some rules we should follow so that we can control the complex situations when both the two kinds of code are in a single HTML file.</p>
+
+<p>If there are some scripts depending on the other scripts, we have to put the dependency scripts above the code that needs them. For example, jQuery source code should be put in front of any code using jQuery functionalities.</p>
+<pre>
+<code>&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="external.js"&gt;&lt;/script&gt;
+</code>
+</pre>
+
+<p>It really doesn’t matter if you put script in the head tag or body tag, but in traditions, dependency scripts should be considered to put in the head tag to ensure the whole scripts in the HTML work well.</p>

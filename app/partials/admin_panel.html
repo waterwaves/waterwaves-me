@@ -1,0 +1,166 @@
+<style type="text/css">
+  .clickable {
+    border-radius: 25px;
+    background-color: darkgray;
+    color: white;
+    text-align: center;
+    box-shadow: 2px 4px 6px rgba(0,0,0, .5);
+    margin-bottom: 35px;
+  }
+  .paragraph {
+    width: 700px;
+  }
+  .action-group {
+    margin-top: 20px;
+  }
+</style>
+
+<div ng-if="showPanel" class="well-large container">
+  <div class="nav">
+    <button class="btn btn-primary" ng-click="logout()">Sign Out</button>
+  </div>
+  <div class="well" ng-controller="msgsCtrl">
+    <h3 ng-click="showMsgs()" class="clickable">Messages</h3>
+    <div ng-if="wantShowMsgs">
+      <table class="table">
+        <tr ng-repeat="msg in msgs" ng-controller="msgCtrl" ng-hide="hasDeleted">
+          <td>
+            <div class="row">
+              <div class="span8">
+                <div class="row">
+                  <div class="span4"><span>{{msg.email}}</span></div>
+                  <div class="span4"><span>{{toReadableTime(msg.timestamp)}}</span></div>
+                </div>
+                <h4>{{msg.msg}}</h4>
+              </div>
+              <div class="span3">
+                <button class="btn" ng-class="{'btn-primary': msg.read}" ng-click="hasRead(msg);$event.stopPropagation();">Mark<span ng-if="msg.read">ed</span> as read</button>
+                <button class="btn btn-danger" ng-click="deleteMsg(msg);$event.stopPropagation()">Delete</button>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="well" ng-controller="wrtCtrl">
+    <h3 ng-click="showWrtPanel()" class="clickable">Writings</h3>
+    <div ng-if="wantShowWrt">
+      <div>
+        <div class="btn-group">
+          <button class="btn"
+                  ng-class="{'btn-primary': wrtStatus == 'add', disabled: addDisabled}"
+                  ng-click="addWrt();$event.stopPropagation();"
+                  ng-disabled="addDisabled">Add new writing</button>
+          <button class="btn"
+                  ng-class="{'btn-primary': wrtStatus == 'edit', disabled: editDisabled}"
+                  ng-click="editWrt();$event.stopPropagation();"
+                  ng-disabled="editDisabled">Edit existing writing</button>
+        </div>
+        <div ng-if="wrtStatus == 'add'" ng-controller="addWrtCtrl">
+          <form action="" class="form-horizontal">
+            <div>
+              <h4>Title</h4>
+              <input type="text" class="paragraph" ng-model="title"/>
+            </div>
+            <div>
+              <h4>Content</h4>
+              <div ng-repeat="piece in pieces">
+                <select class="options" ng-init="piece.type='normal'" ng-model="piece.type">
+                  <option value="normal">normal</option>
+                  <option value="quote">quote</option>
+                </select>
+                <button class="btn btn-danger" ng-click="pieceDelete($index)">delete</button>
+                <br>
+                <textarea class="paragraph" rows="3" ng-model="piece.paragraph"></textarea>
+              </div>
+
+            </div>
+            <div>
+              <button class="btn" ng-click="addPiece()">Add another piece</button>
+            </div>
+            <div>
+              <h4>Footer</h4>
+              <div class="input-prepend">
+                <span class="add-on">signature</span>
+                <input type="text" ng-model="signature"/>
+              </div>
+              <div class="input-prepend">
+                <span class="add-on">mark</span>
+                <input type="text" class="span5" ng-model="timestamp"/>
+              </div>
+              <div class="input-prepend">
+                <span class="add-on">created Date</span>
+                <input type="text" class="span2" ng-model="createDate"/>
+              </div>
+            </div>
+            <div class="action-group">
+              <button class="btn btn-primary" ng-click="saveWrt()">Save</button>
+              <button class="btn" ng-click="cancel()">Cancel</button>
+            </div>
+
+          </form>
+        </div>
+        <div ng-if="wrtStatus == 'edit'" >
+          <table class="table">
+            <tr><th>Action</th><th>Title</th><th>Created Date</th></tr>
+            <tr ng-repeat="wrt in wrts" ng-controller="editWrtCtrl" ng-hide="deleted">
+              <td ng-if="! inEdit">
+                <button class="btn btn-primary" ng-click="modifyWrt()">Modify</button>
+                <button class="btn btn-danger" ng-click="deleteWrt()">Delete</button>
+              </td>
+              <td ng-if="! inEdit">
+                <span>{{wrt.title}}</span>
+              </td>
+              <td ng-if="! inEdit">
+                <span>{{dateFormat(wrt.created)}}</span>
+              </td>
+              <td ng-if="inEdit" colspan="3">
+                <form action="" class="form-horizontal" ng-if="inEdit">
+                <div>
+                  <h4>Title</h4>
+                  <input type="text" class="paragraph" ng-model="wrt.title"/>
+                </div>
+                <div>
+                  <h4>Content</h4>
+                  <div ng-repeat="piece in wrt.content">
+                    <select class="options" ng-init="piece.type='normal'" ng-model="piece.type">
+                      <option value="normal">normal</option>
+                      <option value="quote">quote</option>
+                    </select>
+                    <button class="btn btn-danger" ng-click="pieceDelete($index)">delete</button>
+                    <br>
+                    <textarea class="paragraph" rows="3" ng-model="piece.paragraph"></textarea>
+                  </div>
+
+                </div>
+                <div>
+                  <button class="btn" ng-click="addPiece()">Add another piece</button>
+                </div>
+                <div>
+                  <h4>Footer</h4>
+                  <div class="input-prepend">
+                    <span class="add-on">signature</span>
+                    <input type="text" ng-model="wrt.footer.signature"/>
+                  </div>
+                  <div class="input-prepend">
+                    <span class="add-on">mark</span>
+                    <input type="text" class="span5" ng-model="wrt.footer.timestamp"/>
+                  </div>
+                </div>
+                <div class="action-group">
+                  <button class="btn btn-primary" ng-click="saveWrt()">Save</button>
+                  <button class="btn" ng-click="cancel()">Cancel</button>
+                </div>
+
+              </form>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

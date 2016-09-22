@@ -1,0 +1,163 @@
+@import url("fonts/font.css");
+
+.stylish {
+  font-family: Italianno;
+}
+
+.pagemargin {
+  border-top: .3em solid saddlebrown;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  width: 100%
+}
+
+.sidemargin {
+  border-left: .5em solid saddlebrown;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 760px;
+  min-height: 400px;
+  box-shadow: 1px -5px 10px grey;
+}
+
+.main-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 660px;
+  margin-top: 100px;
+}
+
+.title {
+  font-size: 48px;
+}
+.title div:first-child {
+  display: inline-block;
+}
+
+.title a,
+.timeblock a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.title a:hover,
+.timeblock a:hover {
+  color: grey;
+}
+
+.content {
+  font-family: 'calluna', Georgia, serif;
+  font-size: 20px;
+  line-height: 1.5em;
+}
+
+.quote {
+  font-style: italic;
+  color: brown;
+}
+
+.footer {
+  margin-top: 100px;
+  margin-bottom: 200px;
+  color: grey;
+  position: relative;
+  float: right;
+}
+
+.signature {
+  font-size: 48px;
+  margin-bottom: -.2em;
+}
+.signature a {
+  text-decoration: none;
+  color: grey;
+}
+
+.timestamp {
+  font-size: 16px;
+}
+
+
+/* writing list*/
+.timeline {
+  padding-left: 100px;
+  padding-top: 100px;
+  margin-bottom: 40px;
+}
+
+.mainlist {
+  padding-left: 0;
+  padding-bottom: 70px;
+  list-style-type: none;
+}
+
+.yearlist {
+  padding-left: 0;
+  padding-bottom: 0;
+  list-style-type: none;
+}
+
+.year {
+  font-size: 28px;
+  margin-bottom: 0em;
+  color: #808080;
+}
+
+body {
+  margin: 0;
+  background-color: rgba(210,195,179, .3);
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+#footer p {
+  margin: .5em 0;
+  font-family: 'calluna', Georgia, serif;
+}
+.center {
+  text-align: center;
+}
+
+.bubble {
+  margin-left: 20px;
+  box-shadow: 1px 1px 2px lightgrey;
+  display: none;
+}
+
+.bubble p {
+  font-size: 14px;
+  margin: 7px;
+  color: grey;
+}
+
+.title div:first-child:hover + div {
+  display: inline-block;
+}
+
+.bubble:after {
+  content: "";
+  border-right: 5px solid rgba(255,255,255, .6);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  z-index: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 10px;
+  left: -5px;
+}
+
+.bubble {
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  background-color: rgba(255,255,255, .6);
+  position: relative;
+  top: -5px;
+  left: 0px;
+  z-index: 1;
+}

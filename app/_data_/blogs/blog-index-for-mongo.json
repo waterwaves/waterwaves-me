@@ -1,0 +1,25 @@
+[
+  {
+    "blogName": "scroll-event-and-browser-size-in-javascript",
+    "path": "2013/08/",
+    "title": "\"Scroll\" event and browser size in JavaScript",
+    "tags": ["scroll", "browser size", "footer"],
+    "timestamp": "2013-08-30T00:44:48.491Z",
+    "brief": "When I was designing this personal website, I burst out lots of fancy ideas. One of them is the smart footer. The idea of the smart footer is really simple: when the page length is not long enough to fill the whole browser, the footer will show up; when the page length is more than the height of the browser, the footer will hide until scrolling to the bottom of the page. So, there are two things ",
+    "comments": [],
+    "star": 0,
+    "viewed": 0
+  },
+
+  {
+    "blogName": "jquery-ready-and-javascript-execution-order",
+    "path": "2013/09/",
+    "title": "jQuery ready function and JavaScript script execution order",
+    "tags": ["jQuery", "ready", "order"],
+    "timestamp": "2013-09-21T02:31:42.491Z",
+    "brief": "It is really straightforward but fuzzy to me that when there are JavaScript inline code and JavaScript source files being involved into a single HTML file, what is the exact result it will behave? For this particular question, I just did a specific research for only the following case ",
+    "comments": [],
+    "star": 0,
+    "viewed": 0
+  }
+]

@@ -1,0 +1,58 @@
+@import url('josefinsans/josefinsans.css');
+@import url('opensans/opensans.css');
+@import url('notosans/notosans.css');
+
+/* code-display Style */
+@font-face {
+  font-family: DejaVu Sans mono;
+  src: url('DejaVuSansMono.ttf');
+}
+@font-face {
+  font-family: DejaVu Sans Bold;
+  src: url('DejaVuSansMono-Bold.ttf');
+}
+@font-face {
+  font-family: DejaVu Sans BoldOblique;
+  src: url('DejaVuSansMono-BoldOblique.ttf');
+}
+@font-face {
+  font-family: DejaVu Sans Oblique;
+  src: url('DejaVuSansMono-Oblique.ttf');
+}
+/* header use Style */
+@font-face {
+  font-family: Asul;
+  src: url('Asul-Regular.ttf');
+}
+@font-face {
+  font-family: Asul Bold;
+  src: url('Asul-Bold.ttf');
+}
+/* paragraph Style */
+
+/* big-round cool Style */
+
+/* handwriting Style */
+@font-face {
+  font-family: Italianno;
+  src: url('Italianno-Regular.ttf');
+}
+/* slim Style */
+
+/* clean Style multiple*/
+@font-face {
+  font-family: Raleway;
+  src: url('Raleway-Regular.ttf');
+}
+@font-face {
+  font-family: Raleway extralight;
+  src: url('Raleway-ExtraLight.ttf');
+}
+@font-face {
+  font-family: Raleway light;
+  src: url('Raleway-Light.ttf');
+}
+@font-face {
+  font-family: Raleway bold;
+  src: url('Raleway-Bold.ttf');
+}

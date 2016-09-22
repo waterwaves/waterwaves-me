@@ -1,0 +1,25 @@
+{
+  "home": {
+    "titleName": "WaterWaves.Me | Shan's personal website",
+    "links": {}
+  },
+  "blogs": {
+    "titleName": "Shan's Blog List | WaterWaves.Me",
+    "links": {
+      "/blogs/2013/08/scroll-event-and-browser-size-in-javascript": "Scroll event and browser size in JavaScript",
+      "/blogs/2013/09/jquery-ready-and-javascript-execution-order": "jQuery ready function and JavaScript script execution order"
+    }
+  },
+  "profile": {
+    "titleName": "Shan's Portfolio | WaterWaves.Me",
+    "links": {
+      "/writing": "Writing",
+      "/lifepieces": "Life Pieces",
+      "/about": "About Me"
+    }
+  },
+  "message": {
+    "titleName": "Leave me message | WaterWaves.Me",
+    "links": {}
+  }
+}

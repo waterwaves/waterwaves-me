@@ -1,0 +1,88 @@
+@import url("fonts/font.css");
+@import url("icons/top-home.css");
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: raleway light;
+  font-size: 18px;
+  height: 100%;
+}
+
+.h1 {
+  font-size: 6em;
+}
+.h2 {
+  font-size: 4em;
+}
+.h3 {
+  font-size: 2em;
+}
+.h4 {
+  font-size: 1.5em;
+}
+.h5 {
+  font-size: 1.3em;
+}
+
+.bottom-align {
+  margin-bottom: 5px;
+}
+.top-align {
+  margin-top: 5px;
+}
+.menu {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  color: white;
+}
+.menu .home {
+  float: left;
+}
+.menu .top {
+  float: right;
+}
+.menu a {
+  text-decoration: none;
+  font-size: 2em;
+  color: rgba(145,145,145, .1);
+}
+.menu a:hover {
+  color: white;
+  text-shadow: 1px 1px 1px grey;
+}
+.menu span {
+  display: none;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header {
+  text-align: center;
+  min-height: 95%;
+  background-color: lightcoral;
+  color: white;
+  margin-bottom: -5px;
+}
+.header .container {
+  padding-top: 15em;
+}
+
+.item {
+  min-height: 95%;
+}
+
+.footer {
+  text-align: center;
+  background-color: #808080;
+  color: white;
+}
+.footer .container {
+  padding-top: .8em;
+  padding-bottom: .8em;
+}

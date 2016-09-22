@@ -1,0 +1,8 @@
+<div class="well-large">
+  <form class="form-inline">
+    <input type="text" class="input-medium" placeholder="username" ng-model='username'/>
+    <input type="password" class="input-medium" placeholder="password" ng-model='password'/>
+    <button class="btn btn-primary" ng-click="submit()">Sign In</button>
+  </form>
+  <div ng-show="error"><span class="text-error">username/password incorrect!</span></div>
+</div>

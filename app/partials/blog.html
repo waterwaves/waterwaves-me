@@ -1,0 +1,63 @@
+<div id="blog" class="container">
+  <div class="main-container normal">
+    <div class="span8 well-small">
+      <h1 class="bigger">{{blog.title}}</h1>
+      <span class="pull-left small-stylish" ng-show="blog.tags">
+        <span>Tags: </span>
+        <span ng-repeat="tag in blog.tags">
+          <a href="#">{{tag}}</a><span ng-show=" ! $last ">, </span>
+        </span>
+      </span>
+      <span class="pull-right small-stylish">Posted on {{readableTime(blog.timestamp)}}</span>
+
+      <div class="container-fluid content">
+        <ng-include src="blogPath" class="paragraph"></ng-include>
+
+        <div class="like">
+          {{blog.star}} &nbsp;<i class="icon-chevron-up icon-white"></i>
+        </div>
+      </div>
+
+
+      <div class="container-fluid">
+        <h1 class="bigger-stylish2">Comments:</h1>
+        <ul class="media-list" ng-if="blog.comments.length !== 0">
+          <li class="media" ng-repeat="(email, comment) in blog.comments">
+            <a href="#" class="pull-left comment-block">
+              <div class="media-object"></div>
+            </a>
+            <div class="media-body">
+              <div class="media-self">
+                <h4 class="media-heading">{{comment.name}}</h4>
+                {{comment.content}}
+              </div>
+                <div class="media" ng-repeat="(reemail, reply) in comment.replies">
+                  <a href="#" class="pull-left">
+                    <div class="media-object comment-block"></div>
+                  </a>
+                  <div class="media-body media-self">
+                    <h4 class="media-heading">{{reply.name}}</h4>
+                    {{reply.content}}
+                  </div>
+                </div>
+            </div>
+          </li>
+        </ul>
+        <p ng-if="blog.comments.length === 0">No comments yet.</p>
+      </div>
+
+    </div>
+
+    <div class="span3 well-small">
+      <div>
+        <h3 class="big">Shan's <a href="/blogs">Blogs</a></h3>
+        <ul class="small-stylish">
+          <li ng-repeat="blog in blogs" class="blog-list-item">
+            <a href="{{blog.url}}"><span>{{blog.title}}</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

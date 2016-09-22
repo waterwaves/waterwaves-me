@@ -1,0 +1,30 @@
+extends writing-header
+
+block title
+  title Shan's writings time line | WaterWaves.Me
+
+block body
+  div.sidemargin
+    div.timeline
+      div.title
+        div.portfolio-link
+          a.stylish(href='/profile') Time Line
+        div.bubble
+          p Go back to portfolio.
+      ul.mainlist
+        - var current_year = new Date().getFullYear()
+        - for (var year = current_year; year >= 2013; year--) {
+          - if (list['Y' + year]) {
+            li.timeblock
+              p.year.stylish #{year}
+              ul.yearlist
+                - for (var i = 0; i < list['Y' + year].length; i++) {
+                  item = list['Y' + year][i]
+                  li
+                    a.content(href='/writing#{item.uri}') #{item.title}
+                - }
+          - }
+        - }
+
+  div#footer
+    p.center &copy; #{copyrightYear} Shan He

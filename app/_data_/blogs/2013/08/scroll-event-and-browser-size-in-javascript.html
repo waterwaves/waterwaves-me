@@ -1,0 +1,135 @@
+<p>When I was designing this personal website, I burst out lots of fancy ideas. One of them is the smart footer.
+</p>
+<p>The idea of the smart footer is really simple: when the page length is not long enough to fill the whole browser, the footer will show up; when the page length is more than the height of the browser, the footer will hide until scrolling to the bottom of the page. So, there are two things that need to be figured out. First, the height of both the browser and the page. Second, the event of scrolling down to the bottom of the page.
+</p>
+<p>Because I developed this blog with Angular.JS and Node.JS, I tried to stand only on Angular.JS instead of other JavaScript technology, e.g. jQuery. Every time I got Angular and jQuery together, I messed up with them.
+</p>
+<h3>Pre:</h3>
+
+<p>Before starting both of the two things, I need a footer that is fixed to the bottom of the browser first. I use Twitter Bootstrap as my CSS library, so it is pretty handy and easy. And here is a sample:
+</p>
+
+<pre>
+<code>&lt;div id="footer" class="navbar navbar-fixed-bottom"&gt;</code>
+<code>  &lt;p class="text-center"&gt;&copy; 2013 Shan He&lt;/p&gt;</code>
+<code>&lt;/div&gt;</code>
+</pre>
+
+
+<p>However, if I don't use Twitter Bootstrap, I will get rid of the class and add the CSS setting as below:</p>
+<pre><code>#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: black;
+}
+</code></pre>
+
+<p>The only useful styles here are 'position' and 'bottom'. 'position' is 'fixed' means the footer is relative to the browser, not the parent element or the page. 'bottom' is '0' means the footer exactly floats 100% above the bottom of the browser. The others are just easy for me to develop.
+</p>
+<h3>First, render all of the sizes:
+</h3>
+<p>Basically, we can get every size from window and document.</p>
+
+<pre><code>document.body.offsetHeight – the height of the page (or body)
+document.body.scrollHeight – the height of the entire page (or html), slightly different from  offsetHeight.
+document.body.clientHeight – the height of the browser
+document.body.scrollTop – the height between current position and the top
+</code></pre>
+
+
+<p>Because Angular.JS wants to wrap every DOM, I get these parameters from $window.
+</p>
+
+<pre><code>$window.document.body.xxxHeight
+</code></pre>
+
+
+<p>Therefore, by now, we can easily know whether the page is long enough to scroll by comparing 'offsetHeight' and 'clientHeight'. (By the way, if the page is shorter than your browser and you have your fixed footer already, these two params are always the same.)
+</p>
+<h3>Second, bind with “when scroll at the bottom”
+</h3>
+<p>If the page is longer than the height of the browser, the footer needs to hide until the page is scrolled to its bottom. In Angular.JS, there is a method “bind” for element object to bind the event. JavaScript code looks like this:
+</p>
+
+<pre>
+<code>angular.element($window).bind('scroll', function(){
+  if (body.scrollTop + body.clientHeight - body.offsetHeight > 70 ) {
+    // At / Near the bottom, some code is here;
+  } else {
+  // otherwise, some code is here;
+  }
+  return;
+});
+</code></pre>
+
+
+
+<p>It works, and works pretty well. The only concern is the resource utility of this bind. It is not that much, but still consumes some of it.
+</p>
+<p>In order to make my footer work for the entire situation, I made a ng-class for my footer:
+</p>
+
+<pre><code>&lt;div id="footer" class="navbar navbar-fixed-bottom" ng-class="{'footer-show': footerShow, 'footer-hide': !footerShow}"&gt;
+  &lt;p class="text-center"&gt;&copy; 2013 Shan He&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<p>Angular.JS cannot tell footer-show and footer-hide without quote marks, basically because it only recognizes string ans string-like class, '-' is definitely not the lover of Angular string. 'footerShow' is a boolean binding parameter, which is defined in the controller by different situations:
+</p>
+
+<pre><code>var smartFooterFunc = function($rootScope, $window) {
+  var body = $window.document.body;
+  if (body.offsetHeight <= body.clientHeight) {
+    $rootScope.footerShow = true;
+    return;
+  }
+  $rootScope.footerShow = false;
+  angular.element($window).bind('scroll', function(){
+    if (body.scrollTop + body.clientHeight - body.offsetHeight > 70 ) {
+      $rootScope.footerShow = true;
+    } else {
+      $rootScope.footerShow = false;
+    }
+    $rootScope.$digest();
+    return;
+  });
+};
+</code></pre>
+
+
+<p>One thing I want to mention here is $rootScope.$digest(). $rootScope being used here is because this function is declared in a controller with a different scope. $digest() makes the 'footerShow' updated in time. This function cannot be used everywhere but only out of the controller scope (e.g. the binding stuff). And the CSS from the magic show-up and hide-down is this:
+</p>
+
+<pre><code>.footer-show {
+    animation: showup .5s forwards;
+    -webkit-animation: showup .5s forwards;
+  }
+.footer-hide {
+  animation: hidedown .5s forwards;
+  -webkit-animation: hidedown .5s forwards;
+}
+
+@keyframes showup {
+  from {bottom : -100px;}
+  to {bottom : 0px;}
+}
+@-webkit-keyframes showup {
+  from {bottom : -100px;}
+  to {bottom : 0px;}
+}
+@keyframes hidedown {
+  from {bottom : 0px;}
+  to {bottom : -100px;}
+}
+@-webkit-keyframes hidedown {
+  from {bottom : 0px;}
+  to {bottom : -100px;}
+}
+</code></pre>
+
+
+<p>'-webkit-' is for Google Chrome and Apple Safari.
+</p>

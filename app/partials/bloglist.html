@@ -1,0 +1,29 @@
+<div id="blogs" class="container">
+  <div class="main-container normal">
+    <div class="container-fluid">
+      <ul class="unstyled blog-list">
+        <li ng-repeat="blog in blogs" class="blog-list-item">
+          <div class="well-small">
+            <div class="row-fluid">
+              <div class="span2 stylish-timestamp">
+                <span class="month">{{blog.month}}</span>
+                <span class="day">/ {{blog.day}}</span>
+                <br>
+                <span class="year">{{blog.year}}</span>
+              </div>
+              <div class="span10">
+                <h2 class="big"><a href="{{blog.url}}">{{blog.title}}</a></h2>
+                <div class="container-fluid content">
+                  <p>{{blog.brief}} ......</p>
+                </div>
+                <p class="small-stylish"><a href="{{blog.url}}">Continue reading &nbsp;&gt;&gt;</a></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+</div>

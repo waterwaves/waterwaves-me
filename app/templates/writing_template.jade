@@ -1,0 +1,27 @@
+extends writing-header
+
+block title
+  title #{title} | Shan's writing | WaterWaves.Me
+
+block body
+  body
+    div.pagemargin
+    div.main-container
+      div.title
+        div
+          a.stylish(href='/writing') #{title}
+        div.bubble
+          p Go back to time-line.
+      div.content
+        each piece in content
+          case piece.type
+            when 'normal'
+              p
+                | #{piece.paragraph}
+            when 'quote'
+              q.quote #{piece.paragraph}
+      div.footer
+        p.signature.stylish
+          a(href='/profile') #{footer.signature}
+        div.timestamp
+          span #{footer.timestamp}

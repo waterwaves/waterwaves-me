@@ -1,0 +1,69 @@
+html(ng-app='myApp')
+  head
+    title(ng-bind='title') #{titleName}
+    meta(name='fragment', content='!')
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    link(rel='icon', type='image/png', href='/img/s.png')
+    script(type='text/javascript', src='/lib/angular/angular.js')
+    script(type='text/javascript', src='/lib/angular/angular-route.js')
+    script(type='text/javascript', src='/lib/angular/angular-sanitize.js')
+    script(type='text/javascript', src='/js/app.js')
+    script(type='text/javascript', src='/js/controllers.js')
+    script(type='text/javascript', src='/js/services.js')
+    script(type='text/javascript', src='/js/directives.js')
+
+    script(type='text/javascript', src='/js/controllers/home-ctrl.js')
+
+    //if lt IE 9
+        script(src='/lib/html5shiv.js')
+    //CSS library
+    link(rel='stylesheet', href='/css/style.css')
+    include partials/google-analytics
+
+  body
+    //Header
+    #header.navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand(href='/')
+            span.warm.boldbrand WaterWaves.Me
+          ul.nav.nav-pills
+            li(ng-class='{active: active == \'home\'}')
+              a(href='/') Home
+            li
+              a(href='/about', target='_self') About
+            li(ng-class='{active: active == \'blogs\'}')
+              a(href='/blogs') Blogs
+            li(ng-class='{active: active == \'profile\'}')
+              a(href='/profile') Portfolio
+            li(ng-class='{active: active == \'message\'}')
+              a(href='/message') Post Board
+    //the Content
+    div.hidden
+      if links
+        each name, link in links
+          a(href='#{link}') #{name}
+
+    div(ng-view='ng-view')
+    //Background
+    .front-bg
+      img.front-image(src='/img/brown-1.jpg')
+    //Footer
+    #footer.navbar.navbar-fixed-bottom(ng-class='{\'footer-show\': footerShow, \'footer-hide\': !footerShow}')
+      #social-box.container.underline
+        .span1.offset1
+          a.fs1.icon-linkedin(data-icon!='&#xe005;', href='http://www.linkedin.com/in/shanhe/', rel='author')
+            span.hidden LinkedIn
+        .span1.offset1
+          a.fs1.icon-twitter(data-icon!='&#xe000;', href='http://twitter.com/waterwaves_me', rel='author')
+            span.hidden Twitter
+        .span1.offset1
+          a.fs1.icon-github(data-icon!='&#xe002;', href='http://github.com/waterwaves')
+            span.hidden GitHub
+        .span1.offset1
+          a.fs1.icon-google-plus(data-icon!='&#xe003;', href='http://plus.google.com/u/0/103790327280908560402', rel='author')
+            span.hidden Google Plus
+        .span1.offset1
+          a.fs1.icon-mail(data-icon!='&#xe004;', href='mailto: sean.shanhe@gmail.com')
+            span.hidden Email To Me
+      p.text-center &copy; #{copyrightYear} Shan He

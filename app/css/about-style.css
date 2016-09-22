@@ -1,0 +1,187 @@
+@import url("bootstrap/css/bootstrap.min.css");
+@import url("social/style.css");
+@import url("fonts/font.css");
+
+@media print {
+  a:link:after, a:visited:after {
+    content: "";
+  }
+}
+
+body {
+  background-color: rgb(240,187,52);
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+.header {
+  background-color: white;
+  position: relative;
+  margin-top: 40px;
+  padding-top: .2em;
+  padding-bottom: 0em;
+  padding-left: 2em;
+  font-family: Open Sans CondLight;
+  font-size: 2em;
+}
+.header .logo {
+  font-size: .5em;
+  font-family: Josefin Sans;
+  padding-left: .5em;
+}
+.header a,
+.header a:hover {
+  color: black;
+}
+
+.left {
+  padding-left: .3em;
+  float: left;
+  width: 60%;
+}
+.right {
+  position: relative;
+  float: left;
+  padding-left: 2em;
+  width: 30%;
+}
+.name {
+  font-family: Josefin Sans thin;
+  font-size: 6em;
+  padding-top: 1em;
+}
+.title {
+  font-family: Open Sans CondLight;
+  font-size: 2.8em;
+  color: white;
+  padding-top: .8em;
+  padding-bottom: .8em;
+  padding-left: .1em;
+}
+
+.headline {
+  font-family: Josefin Sans;
+  font-size: 2em;
+  padding-top: 1.5em;
+  border-bottom: 1.5px darkgrey dashed;
+}
+
+.time-left {
+  float: left;
+  width: 25%;
+  font-family: Open Sans CondLight;
+  font-size: 1.3em;
+}
+.company-right {
+  float: left;
+  width: 75%;
+  margin-bottom: 1em;
+}
+.company {
+  font-family: Josefin Sans Bold;
+  color: white;
+  font-size: 1.5em;
+  margin-top: .1em;
+}
+.company-title {
+  font-family: Open Sans CondBold;
+  font-size: 1.3em;
+
+}
+
+.experience,
+.time-company {
+  list-style: none;
+  margin-left: 0;
+}
+.experience li {
+  margin-bottom: .5em;
+  font-family: Open Sans CondLight;
+  font-size: 1.2em;
+}
+
+.social a {
+  font-size: 2em;
+  margin-right: 1.5em;
+  text-decoration: none;
+  color: white;
+  margin-top: .3em;
+}
+
+.email {
+  padding-top: 2.5em;
+}
+.email a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.5em;
+  margin-right: .8em;
+  margin-top: -.1em;
+}
+.email span {
+  font-family: Open Sans CondLight;
+  font-size: 1.5em;
+}
+
+.skills {
+  list-style: none;
+  margin-left: 0;
+}
+
+.c1 {
+  font-family: Josefin Sans;
+  color: white;
+  font-size: 1.5em;
+  padding-top: .3em;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-bottom: 1px dashed rgba(255,255,255,.3);
+}
+
+.c2 {
+  font-family: Josefin Sans;
+  font-size: 1.5em;
+  padding-top: .3em;
+  margin-right: 1em;
+  text-align: right;
+}
+
+.c3 {
+  font-family: Open Sans CondLight;
+  font-size: 1.6em;
+  padding-top: .3em;
+  text-align: right;
+  margin-right: 1em;
+}
+.c3 span {
+  color: white;
+}
+
+.copyright {
+  background-color: white;
+  font-family: Open Sans CondBold;
+  padding: .5em;
+  position: relative;
+  bottom: -6em;
+  left: 0;
+  width: 100%;
+  max-width: 200%;
+  text-align: center;
+}
+
+.copyright a {
+  color: black;
+}
+
+.sub-title span {
+  /*color: white;*/
+}
+.project:before {
+  content: "\2022\00a0"
+}
+li.project {
+  margin-bottom: .1em;
+}

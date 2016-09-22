@@ -1,0 +1,42 @@
+<div id="message" class="container">
+  <div class="main-container big-stylish">
+    <form action="" class="form-horizontal">
+      <div class="container-fluid">
+        <p>If you have any questions, comments or just casual topic,
+          please feel free to leave your messages here.</p>
+      </div>
+      <div  id="form" class="main-container" ng-hide="success">
+        <div class="control-group">
+          <label for="" class="control-label input-large">Name: </label>
+          <div class="controls">
+            <input type="text" class="span6" ng-model="name"/>
+
+          </div>
+        </div>
+        <div class="control-group" ng-class="{error: hasEmailError}">
+          <label for="" class="control-label">Email*: </label>
+          <div class="controls">
+            <input type="email" class="span6" required ng-model="email"/>
+            <span class="help-inline" ng-if="hasEmailError">Required</span>
+          </div>
+        </div>
+        <div class="control-group" ng-class="{error: hasMsgError}">
+          <label for="" class="control-label">Your Words*: </label>
+          <div class="controls">
+            <textarea name="" id="" rows="10" class="span6" ng-model="message"></textarea>
+            <span class="help-inline" ng-if="hasMsgError">Required</span>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <button type="button" class="btn" ng-click="msgSubmit()">Submit</button>
+          </div>
+        </div>
+      </div>
+      <div id="result" class="main-container" ng-if="success">
+        <p class="container-fluid">Your message has been delivered. I will respond you as soon as possible.
+        Thank you for your message.</p>
+      </div>
+    </form>
+  </div>
+</div>
