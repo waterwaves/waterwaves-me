@@ -1,0 +1,38 @@
+{
+  "name": "waterwaves-me",
+  "version": "0.1.0",
+  "author": "Shan He <sean.shanhe@gmail.com>",
+  "description": "Shan He's personal website",
+  "scripts": {
+    "start": "node web-server.js"
+  },
+  "dependencies": {
+    "async": "0.6.x",
+    "express": "^3.21.2",
+    "jade": "0.x.x",
+    "mongodb": "^2.2.10",
+    "mongoose": "^4.6.1",
+    "nodemailer": "0.x.x",
+    "oauth": "0.x.x",
+    "q": "0.x.x"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waterwaves/waterwaves-me.git"
+  },
+  "keywords": [
+    "Shan",
+    "He",
+    "shanhe",
+    "waterwaves"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waterwaves/waterwaves-me/issues"
+  },
+  "homepage": "https://github.com/waterwaves/waterwaves-me"
+}
