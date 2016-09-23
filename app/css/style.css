@@ -275,7 +275,7 @@ body {
   position: relative;
 }
 #menu .center {
-  margin-left: 47%;
+  margin-left: 43%;
   display: block;
   position: absolute;
   border-radius: 50%;
@@ -300,6 +300,12 @@ body {
   height: 40px;
   bottom: 17px;
   left: -7px;
+}
+#menu li {
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 3px;
 }
 #menu li a {
   padding-bottom: 6px;
