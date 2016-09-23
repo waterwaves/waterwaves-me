@@ -41,10 +41,10 @@ html(ng-app='myApp')
         each name, link in links
           a(href='#{link}') #{name}
 
-    div(ng-view='ng-view')
     //Background
     .front-bg
-      img.front-image(src='/img/brown-1.jpg')
+      div.page-container(ng-view='ng-view')
+
     //Footer
     #footer.navbar.navbar-fixed-bottom(ng-class='{\'footer-show\': footerShow, \'footer-hide\': !footerShow}')
       #social-box.container.underline
