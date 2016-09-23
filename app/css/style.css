@@ -40,7 +40,7 @@ body {
 
 .biggest-stylish {
   font-size: 60px;
-  font-family: 'Asul', sans-serif;
+  font-family: fantasy;
   margin-bottom: 5px;
 }
 .bigger-stylish {
@@ -73,17 +73,19 @@ body {
 /*
   Home CSS
 */
+
 #home-page .format-adjust {
   padding-top: 7em;
-  margin: 0 4em 0 4em;
-}
-#home-page .format-adjust p {
   text-align: center;
-  padding-top: 1em;
-  padding-bottom: .3em;
+
 }
 #home-page .name {
-  border-bottom: 1px solid grey;
+  letter-spacing: 5px;
+  margin-top: 40px;
+}
+#home-page .subtitle {
+  font-family: fantasy;
+  letter-spacing: 5px;
 }
 /*
  * blog CSS
@@ -262,18 +264,53 @@ body {
 }
 
 /* footer settings (bootstrap-modified) */
-#header .navbar-inner {
-  background-color: rgb(35,35,35);
-  background-image: none;
-  border-bottom-color: saddlebrown;
-  min-height: 0px;
+#header {
+  box-shadow: 0px -1px 7px black;
 }
-#header .nav-pills li a {
+#header .navbar-inner {
+  border-width: 0;
+  background: white;
+}
+#menu {
+  position: relative;
+}
+#menu .center {
+  margin-left: 47%;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  bottom: -24px;
+  background: white;
+  box-shadow: 0 0 7px black;
+}
+#menu .center a {
+  position: absolute;
+  left: 14px;
+  bottom: 2px;
+  font-size: 47px;
+}
+#menu .center:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: white;
+  width: 68px;
+  height: 40px;
+  bottom: 17px;
+  left: -7px;
+}
+#menu li a {
   padding-bottom: 6px;
   padding-top: 6px;
   font-size: 16px;
-  color: wheat;
-  text-shadow: 0 0 2px black;
+  font-family: fantasy;
+  color: black;
+  text-decoration: none;
+}
+#menu li a:hover {
+  color: #777777;
 }
 #header .nav-pills .active a {
   background-color: #f5f5f5;
@@ -284,6 +321,10 @@ body {
   padding-bottom: 5px;
   padding-top: 5px;
   text-shadow: -1px 0 10px rgba(255,225,175, .6);
+}
+#menu {
+  width: 450px;
+  margin-top: 10px;
 }
 /* footer settings */
 

@@ -24,20 +24,17 @@ html(ng-app='myApp')
     //Header
     #header.navbar.navbar-fixed-top
       .navbar-inner
-        .container
-          a.brand(href='/')
-            span.warm.boldbrand WaterWaves.Me
-          ul.nav.nav-pills
-            li(ng-class='{active: active == \'home\'}')
-              a(href='/') Home
-            li
-              a(href='/about', target='_self') About
-            li(ng-class='{active: active == \'blogs\'}')
-              a(href='/blogs') Blogs
-            li(ng-class='{active: active == \'profile\'}')
-              a(href='/profile') Portfolio
-            li(ng-class='{active: active == \'message\'}')
-              a(href='/message') Post Board
+        .container#menu
+          li.pull-left
+            a(href='/blogs') Blogs
+          li.pull-left
+            a(href='/profile') Portfolio
+          li.center
+            a(href='/') S
+          li.pull-right
+            a(href='/message') Contact
+          li.pull-right
+            a(href='/about', target='_self') About
     //the Content
     div.hidden
       if links
