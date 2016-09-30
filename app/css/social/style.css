@@ -29,17 +29,11 @@ you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
 
-.icon-facebook:hover {
-  color: #3B559F;
-}
 .icon-twitter:hover {
   color: #00BEF6;
 }
 .icon-github:hover {
 	color: #333333;
-}
-.icon-google-plus:hover {
-	color: #DB4935;
 }
 .icon-mail:hover {
 	color: #FFFFFF;
@@ -50,15 +44,4 @@ you can use the generic selector below, but it's slower:
 
 #social-box {
   margin-bottom: 35px;
-}
-
-.fs1 {
-  font-size: 3em;
-  color: #CCC;
-  background-color: rgba(0,0,0,.0);
-  margin: 10px;
-}
-
-.fs1:hover {
-  text-decoration: none;
 }

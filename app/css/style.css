@@ -57,7 +57,7 @@ body {
 }
 .normal-stylish {
   font-size: 16px;
-  font-family: 'Asul', sans-serif;
+  font-family: Raleway light;
 }
 .small-stylish {
   font-size: 14px;
@@ -215,8 +215,10 @@ body {
 #profile a:hover {
   color: white;
   text-decoration: none;
-
 }
+/*#profile p {
+  font-size: 18px;
+}*/
 
 #profile .content{
   margin-top: 20px;
@@ -233,9 +235,19 @@ body {
 }
 #others ul li {
   margin-right: 20px;
+  margin-left: 20px;
   text-shadow: 1px 1px 1px black;
 }
 
+.profile-image {
+  border-radius: 50%;
+  background: no-repeat center top url("/img/profile-image.jpg");
+  background-size: 100%;
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  margin-bottom: 35px;
+}
 /* Message settings () */
 
 #message input {
@@ -361,14 +373,26 @@ body {
   to {bottom : -100px;}
 }
 
-#footer .fs1:hover {
-  font-size: 4em;
-  margin-left: 0em;
-  margin-top: 0em;
-  transition: .1s;
+#footer {
+  max-width: 940px;
+  margin: auto;
 }
 
+.fs1 {
+  font-size: 1.5em;
+  color: #CCC;
+  width: 1.5em;
+	margin-top: -.15em;
+}
 
+.fs1:hover {
+  text-decoration: none;
+}
+
+#footer span.divider {
+  margin-left: 1.5em;
+  margin-right: 1em;
+}
 
 /* background image(s) settings */
 
@@ -377,10 +401,16 @@ body {
   width: 100%;
   height: 100%;
   top: 0;
-  z-index: -99;
   background: no-repeat center right fixed url('/img/brown-1.jpg');
   background-size: cover;
   background-color: #000000;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(30,30,30,.78);
 }
 
 /* 404 page */

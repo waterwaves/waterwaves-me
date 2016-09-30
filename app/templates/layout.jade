@@ -28,7 +28,7 @@ html(ng-app='myApp')
           li.pull-left
             a(href='/blogs') Blogs
           li.pull-left
-            a(href='/profile') Portfolio
+            a(href='/profile') Profile
           li.center
             a(href='/') S
           li.pull-right
@@ -43,24 +43,20 @@ html(ng-app='myApp')
 
     //Background
     .front-bg
-      div.page-container(ng-view='ng-view')
+      .overlay
+      .page-container(ng-view='ng-view')
+
 
     //Footer
     #footer.navbar.navbar-fixed-bottom(ng-class='{\'footer-show\': footerShow, \'footer-hide\': !footerShow}')
-      #social-box.container.underline
-        .span1.offset1
-          a.fs1.icon-linkedin(data-icon!='&#xe005;', href='http://www.linkedin.com/in/shanhe/', rel='author')
-            span.hidden LinkedIn
-        .span1.offset1
-          a.fs1.icon-twitter(data-icon!='&#xe000;', href='http://twitter.com/waterwaves_me', rel='author')
-            span.hidden Twitter
-        .span1.offset1
-          a.fs1.icon-github(data-icon!='&#xe002;', href='http://github.com/waterwaves')
-            span.hidden GitHub
-        .span1.offset1
-          a.fs1.icon-google-plus(data-icon!='&#xe003;', href='http://plus.google.com/u/0/103790327280908560402', rel='author')
-            span.hidden Google Plus
-        .span1.offset1
-          a.fs1.icon-mail(data-icon!='&#xe004;', href='mailto: sean.shanhe@gmail.com')
-            span.hidden Email To Me
-      p.text-center &copy; #{copyrightYear} Shan He
+      p.text-center
+        span &copy; #{copyrightYear} Shan He
+        span.divider &bull; 
+        a.fs1.icon-linkedin(data-icon!='&#xe005;', href='http://www.linkedin.com/in/shanhe/', rel='author')
+          span.hidden LinkedIn
+        a.fs1.icon-twitter(data-icon!='&#xe000;', href='http://twitter.com/waterwaves_me', rel='author')
+          span.hidden Twitter
+        a.fs1.icon-github(data-icon!='&#xe002;', href='http://github.com/waterwaves')
+          span.hidden GitHub
+        a.fs1.icon-mail(data-icon!='&#xe004;', href='mailto: sean.shanhe@gmail.com')
+          span.hidden Email To Me
