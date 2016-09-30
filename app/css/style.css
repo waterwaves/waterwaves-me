@@ -49,15 +49,11 @@ body {
 }
 .big-stylish {
   font-size: 21px;
-  font-family: Raleway light;
-}
-.big-stylish2 {
-  font-size: 21px;
-  font-family: Open Sans CondLight;
+  font-family: fantasy;
 }
 .normal-stylish {
-  font-size: 16px;
-  font-family: Raleway light;
+  font-size: 18px;
+  font-family: fantasy;
 }
 .small-stylish {
   font-size: 14px;
@@ -250,6 +246,10 @@ body {
 }
 /* Message settings () */
 
+#message .description {
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
 #message input {
   font-size: 16px;
   height: 1.8em;
@@ -323,8 +323,8 @@ body {
 }
 #menu li {
   display: block;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 12px;
+  margin-right: 12px;
   margin-top: 3px;
 }
 #menu li a {
