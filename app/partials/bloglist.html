@@ -5,13 +5,13 @@
         <li ng-repeat="blog in blogs" class="blog-list-item">
           <div class="well-small">
             <div class="row-fluid">
-              <div class="span2 stylish-timestamp">
+              <div class="span3 stylish-timestamp">
                 <span class="month">{{blog.month}}</span>
                 <span class="day">/ {{blog.day}}</span>
                 <br>
-                <span class="year">{{blog.year}}</span>
+                <span class="year pull-right">{{blog.year}}</span>
               </div>
-              <div class="span10">
+              <div class="span9">
                 <h2 class="big"><a href="{{blog.url}}">{{blog.title}}</a></h2>
                 <div class="container-fluid content">
                   <p>{{blog.brief}} ......</p>
